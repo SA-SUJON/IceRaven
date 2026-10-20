@@ -27,12 +27,6 @@
   <string name="preferences_relinquish_memory_description">Если включено, вкладки будут приостановлены, а состояние страницы потеряно, когда в системе мало памяти</string>
   <!-- Preference for Top Sites show most recent sites or not -->
   <string name="preferences_show_top_recent_sites">Показать наиболее посещаемые веб-сайты</string>
-  <string name="preferences_dns_over_https">DNS через HTTPS</string>
-  <string name="preferences_dns_over_https_on">Вкл</string>
-  <string name="preferences_dns_over_https_off">Выкл</string>
-  <string name="preferences_dns_over_https_title">Режим DNS через HTTPS</string>
-  <string name="preferences_dns_over_https_summary">Система доменных имен (DNS) через HTTPS отправляет ваш запрос на доменное имя через зашифрованное соединение, создавая безопасный DNS и затрудняя другим возможность увидеть, к какому веб-сайту вы собираетесь получить доступ.</string>
-  <string name="preferences_dns_over_https_custom_server">Пользовательский</string>
   <string name="addons_delete_cache">Удалить файл кэша метаданных аддонов</string>
   <string name="addons_sideload">Установить дополнение из файла</string>
   <string name="confirm_addons_delete_cache">Вы уверены, что хотите удалить файл кэша метаданных аддонов?</string>
