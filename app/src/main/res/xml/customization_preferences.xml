@@ -67,12 +67,6 @@
         <androidx.preference.SwitchPreferenceCompat
             android:key="@string/pref_key_suggest_shipped_domains"
             android:title="@string/preferences_suggest_shipped_domains"/>
-        <androidx.preference.Preference
-            android:key="@string/pref_key_tab_strip_message"
-            android:title=""
-            android:summary="@string/preference_toolbar_pref_disabled_explanation"
-            android:enabled="false"
-            android:selectable="false" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
