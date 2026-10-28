@@ -66,11 +66,7 @@ class AccountUiView(
 
             // Signed-out.
         } else {
-            if (context.components.settings.shouldShowSignInButton) {
-                preferenceSignIn.isVisible = true
-            } else {
-                preferenceSignIn.isVisible = false
-            }
+            preferenceSignIn.isVisible = true
             preferenceFirefoxAccount.isVisible = false
             preferenceFirefoxAccountAuthError.isVisible = false
             accountPreferenceCategory.isVisible = false
