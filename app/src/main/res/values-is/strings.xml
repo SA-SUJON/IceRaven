@@ -709,6 +709,14 @@
   <string name="search_widget_text_long">Leita á vefnum</string>
   <!-- Content description (not visible, for screen readers etc.): Voice search -->
   <string name="search_widget_voice">Raddleit</string>
+  <!-- Content description (not visible, for screen readers etc.): Button in the search widget that starts a search in a private tab -->
+  <string name="search_widget_private_search">Huliðsleit</string>
+  <!-- Widget description in the widget picker screen for the search bar widget that includes buttons for private search and for voice search -->
+  <string name="search_bar_widget_description">Leitarstika með huliðsleit og leit með tali</string>
+  <!-- Widget description in the widget picker screen for the search bar widget that includes buttons for image search, private search and voice search -->
+  <string name="search_bar_with_lens_widget_description">Leitarstika með leit að myndum, huliðsleit og leit með tali</string>
+  <!-- Widget description in the widget picker screen for the compact search bar widget -->
+  <string name="compact_search_bar_widget_description">Þjöppuð leitarstika</string>
   <!--
     Preferences
 
@@ -2396,10 +2404,6 @@
   <string name="sync_sign_in">Skráðu þig inn til að samstilla</string>
   <!-- An option from the share dialog to send link to all other sync devices -->
   <string name="sync_send_to_all">Senda í öll tæki</string>
-  <!-- Text displayed when no other sync devices are available for link sharing -->
-  <string name="sync_no_devices_available">Engin tæki tiltæk</string>
-  <!-- Text displayed when no other sync devices are available for link sharing. -->
-  <string name="sync_no_devices_available_description">Öll tæki sem eru innskráð og samstilla við þennan reikning birtast hér.</string>
   <!-- An option from the share dialog to reconnect to sync -->
   <string name="sync_reconnect">Tengdu aftur til að samstilla</string>
   <!-- Label for the button in the share dialog that sends the tab to the selected sync devices -->

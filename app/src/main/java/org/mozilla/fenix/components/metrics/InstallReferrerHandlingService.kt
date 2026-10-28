@@ -82,6 +82,8 @@ class InstallReferrerHandlingService(
                                     isRakutenAttribution(installReferrerResponse)
                                 context.components.settings.isUserSkyflagAttributed =
                                     isSkyflagAttribution(installReferrerResponse)
+                                context.components.settings.isUserQuoraAttributed =
+                                    isQuoraAttribution(installReferrerResponse)
                                 context.components.settings.isUserPairingCampaignAttributed =
                                     isPairingCampaignAttribution(
                                         installReferrerResponse,
@@ -167,6 +169,7 @@ class InstallReferrerHandlingService(
         private const val MOLOCO_EXTERNAL_CLICK_ID_PREFIX = "moloco_"
         private const val RAKUTEN_UTM_SOURCE = "rakuten"
         private const val SKYFLAG_UTM_SOURCE = "skyflag"
+        private const val QUORA_UTM_SOURCE = "quora"
 
         private fun decodeInstallReferrer(installReferrerResponse: String): String =
             try {
@@ -235,6 +238,14 @@ class InstallReferrerHandlingService(
             return UTMParams.parseUTMParameters(decoded).source.equals(SKYFLAG_UTM_SOURCE, ignoreCase = true)
         }
 
+        @VisibleForTesting
+        internal fun isQuoraAttribution(installReferrerResponse: String?): Boolean {
+            if (installReferrerResponse.isNullOrBlank()) return false
+            val decoded = decodeInstallReferrer(installReferrerResponse)
+
+            return UTMParams.parseUTMParameters(decoded).source.equals(QUORA_UTM_SOURCE, ignoreCase = true)
+        }
+
         /**
          * Whether [installReferrerResponse] contains a `utm_content` value that matches the given [campaignUtmContent]
          * value, ignoring case.
@@ -298,6 +309,10 @@ class InstallReferrerHandlingService(
             }
 
             if (isSkyflagAttribution(installReferrerResponse)) {
+                return true
+            }
+
+            if (isQuoraAttribution(installReferrerResponse)) {
                 return true
             }
 

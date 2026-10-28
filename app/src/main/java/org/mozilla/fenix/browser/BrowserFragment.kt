@@ -50,6 +50,7 @@ import mozilla.components.support.ktx.android.util.dpToPx
 import mozilla.components.support.ktx.kotlin.isContentUrl
 import org.mozilla.fenix.GleanMetrics.Translations
 import org.mozilla.fenix.R
+import org.mozilla.fenix.browser.readermode.PowerSavingModeReaderViewBinding
 import org.mozilla.fenix.browser.store.BrowserScreenAction.ReaderModeStatusUpdated
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.LensFeature
@@ -99,6 +100,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler, SystemIns
     private val translationsBannerIntegration = ViewBoundFeatureWrapper<TranslationsBannerIntegration>()
     private val pdfToolsIntegration = ViewBoundFeatureWrapper<PdfToolsIntegration>()
     private val listenSheetIntegration = ViewBoundFeatureWrapper<ListenSheetIntegration>()
+    private val powerSavingModeReaderViewBinding = ViewBoundFeatureWrapper<PowerSavingModeReaderViewBinding>()
     private val continuousOnboardingFeature = ViewBoundFeatureWrapper<ContinuousOnboardingFeature>()
     private var qrScanFenixFeature: ViewBoundFeatureWrapper<QrScanFenixFeature>? =
         ViewBoundFeatureWrapper<QrScanFenixFeature>()
@@ -299,6 +301,17 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler, SystemIns
             owner = this,
             view = view,
         )
+
+        powerSavingModeReaderViewBinding.set(
+            feature =
+                PowerSavingModeReaderViewBinding(
+                    browserStore = context.components.core.store,
+                    appStore = context.components.appStore,
+                    readerModeController = readerMenuController,
+                ),
+            owner = this,
+            view = view,
+        )
     }
 
     private fun initTranslationsUpdates(context: Context, rootView: View) {
@@ -365,11 +378,15 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler, SystemIns
                     container = binding.browserLayout,
                     browserStore = context.components.core.store,
                     listenStore = context.components.listenToPage.store,
+                    engineView = binding.engineView,
                     isAddressBarAtBottom = settings.toolbarPosition == ToolbarPosition.BOTTOM,
                     onListenClicked = {
                         context.components.core.store.state.selectedTab?.let { tab ->
                             context.components.listenToPage.store.dispatch(
-                                ListenAction.Session.ListenRequested(tabId = tab.id, url = tab.content.url)
+                                ListenAction.Session.ListenRequested(
+                                    tabId = tab.id,
+                                    url = tab.readerState.activeUrl ?: tab.content.url,
+                                )
                             )
                         }
                     },

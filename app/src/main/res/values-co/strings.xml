@@ -707,6 +707,8 @@
   <string name="search_widget_text_long">Ricercà nant’à u web</string>
   <!-- Content description (not visible, for screen readers etc.): Voice search -->
   <string name="search_widget_voice">Ricerca vucale</string>
+  <!-- Content description (not visible, for screen readers etc.): Button in the search widget that starts a search in a private tab -->
+  <string name="search_widget_private_search">Ricerca privata</string>
   <!--
     Preferences
 
@@ -1365,6 +1367,8 @@
   <string name="library_desktop_bookmarks_unfiled">Altre indette</string>
   <!-- Option in Library to open History page -->
   <string name="library_history">Cronolugia</string>
+  <!-- Content description (not visible, for screen readers etc.) for the check mark that replaces a site's icon in History and Recently closed tabs when the item is selected -->
+  <string name="library_item_selected_content_description">Selezziunatu</string>
   <!-- Settings Page Title -->
   <string name="settings_title">Parametri</string>
   <!-- Content description (not visible, for screen readers etc.): "Close button for library settings" -->
@@ -2387,10 +2391,6 @@
   <string name="sync_sign_in">Cunnettesi à Sync</string>
   <!-- An option from the share dialog to send link to all other sync devices -->
   <string name="sync_send_to_all">Mandà à tutti l’apparechji</string>
-  <!-- Text displayed when no other sync devices are available for link sharing -->
-  <string name="sync_no_devices_available">Nisunu apparechju dispunibule</string>
-  <!-- Text displayed when no other sync devices are available for link sharing. -->
-  <string name="sync_no_devices_available_description">Tutti l’apparechji cunnessi è sincrunizati cù stu contu seranu affissati quì.</string>
   <!-- An option from the share dialog to reconnect to sync -->
   <string name="sync_reconnect">Ricunnettesi à Sync</string>
   <!-- Label for the button in the share dialog that sends the tab to the selected sync devices -->
@@ -4510,6 +4510,10 @@
   <string name="lens_camera_mode_qr">Analiza di codice QR</string>
   <!-- Toast shown when the user picks an image from the gallery in QR mode but no QR code is found in it -->
   <string name="lens_camera_qr_no_code_found">Nisunu codice QR trovu in a fiura</string>
+  <!-- Button shown under an image picked from the gallery while it is being sent to Google Lens. Tapping it stops the search and returns to the camera. -->
+  <string name="lens_camera_loading_cancel_button">Abbandunà</string>
+  <!-- Action in the snackbar shown when an image picked from the gallery could not be searched with Google Lens. Tapping it searches the same image again. -->
+  <string name="lens_camera_upload_failed_retry_button">Pruvà torna</string>
   <!-- Title of the bottom sheet shown the first time the user opens the Google Lens camera screen -->
   <string name="lens_opt_out_title">Truvatelu cù Google Lens</string>
   <!-- Description of the bottom sheet shown the first time the user opens the Google Lens camera screen -->
